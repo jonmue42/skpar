@@ -9,7 +9,7 @@ def main():
     # argument parsing at start
     # -------------------------------------------------------------------
     parser = argparse.ArgumentParser(
-            description="Tool for optimising Slater-Koster tables for DFTB."
+            description="Tool for optimising Slater-Koster tables for DFTB. USING modified version!!!!"
             )
     parser.add_argument(
             "skpar_input", type=str, default="skpar_in.yaml", action="store", 
