@@ -58,6 +58,12 @@ def relerr(ref, model):
 
 def cost_rms(ref, model, weights, errf=abserr):
     """Return the weighted-RMS deviation"""
+    print("cost_rms ref: ")
+    print(ref)
+    print("\n")
+    print("cost_rms model: ")
+    print(model)
+    print("##########################################")
     assert np.asarray(ref).shape == np.asarray(model).shape
     assert np.asarray(ref).shape == np.asarray(weights).shape
     err2 = errf(ref, model) ** 2
