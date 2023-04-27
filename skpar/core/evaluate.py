@@ -38,7 +38,14 @@ def relerr(ref, model):
           `ref` vanishes but `model` is non zero
     """
     aref = np.asarray(ref)
+    print("aref:")
+    print(aref)
+    print("\n")
     amod = np.asarray(model)
+    print("amod:")
+    print(amod)
+    print("\n")
+    print("##########################################")
     # get deviations
     err = abserr(aref, amod)
     # fix the denominator
@@ -59,6 +66,9 @@ def cost_rms(ref, model, weights, errf=abserr):
 
 def eval_objectives(objectives, database):
     """Evaluate fitness/cost"""
+    print("objecftives:")
+    print(objectives)
+    print("#######################################")
     fitness = np.array([objv(database) for objv in objectives])
     return fitness
 
