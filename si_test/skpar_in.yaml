@@ -1,0 +1,54 @@
+tasks:
+  - set: [[params/gfn1-si-xtb.template.toml]]
+  - run: [dftbutils bands, model_calc] #run dftb and dp_bands in Si_calc
+  - get: [band_LGX, model_calc/bs/bands_tot.dat, Si.bs, {unpack: True, rm_columns: [1]}]
+
+objectives:
+  
+  - band_LGX:
+      doc: "Compare highest valence band"
+      models: Si.bs
+      ref:
+        file: ref/Si_diamond_ref.dat #folder/filename
+        loader_args:
+          unpack: True
+        process:
+          rm_columns: [1] #remove columns
+      options:
+        use_model: [4]
+        align_model: [1, 30]
+        use_ref: [4]
+        align_ref: [1, 30]
+      weight: 1.0
+      eval: [rms, relerr]
+  
+  - band_LGX:
+      doc: "Compare lowest conduction band"
+      models: Si.bs
+      ref:
+        file: ref/Si_diamond_ref.dat #folder/filename
+        loader_args:
+          unpack: True
+        process:
+          rm_columns: [1] 
+      options:
+        use_model: [5]
+        align_model: [1, 54]
+        use_ref: [5]
+        align_ref: [1, 54]
+      weight: 10.0
+      eval: [rms, relerr]
+
+optimisation:
+    algo: PSO
+    options:
+        npart: 5
+        ngen : 1
+    parameters:
+#        - Si_level_s: -20.0 -10.0
+#        - Si_level_p: -10.0 -5.0
+#        - Si_level_d:  -3.0 -1.0
+#        - Si_slater_s: 1.8 1.5 2.0
+        - Si_slater_p: 1.3 1.0 2.0
+#        - Si_slater_d: 1.0 1.5
+#        - Si-kpair: 0.9 1.1    

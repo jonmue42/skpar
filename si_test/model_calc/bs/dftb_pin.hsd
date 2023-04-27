@@ -1,0 +1,83 @@
+Geometry = GenFormat {
+2 F
+Si
+1 1 0.0 0.0 0.0
+2 1 0.25 0.25 0.25
+0.000000 0.000000 0.000000
+2.713546 2.713546 0.
+0. 2.713546 2.713546
+2.713546 0. 2.713546
+}
+Driver = {}
+Hamiltonian = xTB {
+  ParameterFile = "../../params/gfn1-si-xtb.toml"
+  Scc = Yes
+  ReadInitialCharges = Yes
+  MaxSCCIterations = 1
+  KPointsAndWeights = KLines {
+1 0.500 0.500 0.500
+30 0.000 0.000 0.000
+30 0.500 0.000 0.500
+  }
+  ShellResolvedSCC = Yes
+  SCCTolerance = 1.0000000000000001E-005
+  EwaldParameter = 0.0000000000000000
+  EwaldTolerance = 1.0000000000000001E-009
+  ConvergentSCCOnly = Yes
+  SpinPolarisation = {}
+  ElectricField = {}
+  Solver = RelativelyRobust {}
+  Charge = 0.0000000000000000
+  Dispersion = {}
+  Solvation = {}
+  Electrostatics = GammaFunctional {}
+  Differentiation = FiniteDiff {
+    Delta = 1.2207031250000000E-004
+  }
+  ForceEvaluation = "Traditional"
+  Mixer = Broyden {
+    MixingParameter = 0.20000000000000001
+    InverseJacobiWeight = 1.0000000000000000E-002
+    MinimalWeight = 1.0000000000000000
+    MaximalWeight = 100000.00000000000
+    WeightFactor = 1.0000000000000000E-002
+  }
+  Filling = Fermi {
+    Temperature = 9.5004460357391702E-004
+    IndependentKFilling = No
+  }
+}
+Options = {
+  WriteDetailedOut = Yes
+  WriteAutotestTag = No
+  WriteDetailedXML = No
+  WriteResultsTag = No
+  RestartFrequency = 20
+  RandomSeed = 0
+  WriteHS = No
+  WriteRealHS = No
+  MinimiseMemoryUsage = No
+  ShowFoldedCoords = No
+  TimingVerbosity = 1
+  ReadChargesAsText = No
+  WriteChargesAsText = No
+  SkipChargeTest = No
+}
+Analysis = {
+  MullikenAnalysis = Yes
+  WriteBandOut = Yes
+  WriteEigenvectors = Yes
+  EigenvectorsAsText = Yes
+  ProjectStates = {}
+  WriteNetCharges = No
+  AtomResolvedEnergies = No
+  CalculateForces = No
+}
+ParserOptions = {
+  ParserVersion = 12
+  WriteHSDInput = Yes
+  StopAfterParsing = No
+  IgnoreUnprocessedNodes = No
+}
+Reks = None {}
+ExcitedState = {}

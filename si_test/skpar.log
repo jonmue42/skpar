@@ -1,0 +1,61 @@
+   INFO: Parsing input file skpar_in.yaml
+   INFO: The following configuration was understood:
+   INFO: workroot: None
+   INFO: templatedir: None
+   INFO: keepworkdirs: False
+   INFO: Initialising tasks
+   INFO: The following tasks will be executed at each iteration.
+   INFO: Task 0:	set: <function substitute_parameters at 0x7ff8bdcf13a0>
+			  1 args: ['params/gfn1-si-xtb.template.toml']
+   INFO: Task 1:	run: <function execute at 0x7ff8bdcf05e0>
+			  2 args: dftbutils bands, model_calc
+   INFO: Task 2:	get: <function get_model_data at 0x7ff8bdcf0cc0>
+			  3 args: band_LGX, model_calc/bs/bands_tot.dat, Si.bs
+			2 kwargs: unpack: True, rm_columns: [1]
+   INFO: Instantiating Evaluator
+   INFO: Instantiating Optimiser
+   INFO: Algorithm: pso
+   INFO: Parameter Si_slater_p = 1.3, range=[1.0,2.0]
+   INFO: Starting optimisation
+   INFO: Initialising ModelDataBase.
+   INFO: Initialising tasks
+   INFO: Iteration (0, 0)
+   INFO: ===========================
+   INFO: Parameters: Si_slater_p(1.356)
+   INFO: Initialising ModelDataBase.
+   INFO: Initialising tasks
+   INFO: Iteration (0, 1)
+   INFO: ===========================
+   INFO: Parameters: Si_slater_p(1.642)
+   INFO: Initialising ModelDataBase.
+   INFO: Initialising tasks
+   INFO: Iteration (0, 2)
+   INFO: ===========================
+   INFO: Parameters: Si_slater_p(1.005)
+   INFO: Initialising ModelDataBase.
+   INFO: Initialising tasks
+   INFO: Iteration (0, 3)
+   INFO: ===========================
+   INFO: Parameters: Si_slater_p(1.635)
+   INFO: Initialising ModelDataBase.
+   INFO: Initialising tasks
+   INFO: Iteration (0, 4)
+   INFO: ===========================
+   INFO: Parameters: Si_slater_p(1.771)
+WARNING: Escape goat along 0 to -1.140, speed -0.150
+WARNING: Bounced back to        -0.860
+
+WARNING: Escape goat along 0 to 1.066, speed 0.795
+WARNING: Bounced back to        0.934
+
+   INFO: 
+   INFO: Fitness statistics follow:
+   INFO:  Gen.      Min.      Max.      Avg.      Std.
+   INFO: ============================================================
+   INFO:     0    0.7758    3.0759    1.5004    0.8446
+   INFO: ============================================================
+   INFO: GBest iteration   : (0, 4)
+   INFO: GBest fitness     : (0.7758323830212199,)
+   INFO: GBest parameters:
+         Si_slater_p  1.771443836867007
+   INFO: Done.

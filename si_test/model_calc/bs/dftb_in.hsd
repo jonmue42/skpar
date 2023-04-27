@@ -1,0 +1,36 @@
+Geometry = GenFormat {
+	<<< "../geometries/geometry.gen"
+}
+
+Driver  {
+
+}
+
+Hamiltonian = xTB {
+	ParameterFile = "../../params/gfn1-si-xtb.toml"	
+	Scc = Yes	# self-consistent-charge calculation
+	ReadInitialCharges = Yes
+  	MaxSCCIterations = 1
+	KPointsAndWeights = KLines {
+    	1	0.500 0.500 0.500    # L
+     	30	0.000 0.000 0.000    # Gamma
+     	30	0.500 0.000 0.500    # X
+   	}
+}
+
+Options {
+
+}
+
+Analysis {
+	MullikenAnalysis = Yes	#Mulliken Analysis of the Orbital Population?
+	WriteBandOut = Yes #Write out Band for plotting	
+	WriteEigenvectors = Yes
+	EigenvectorsAsText = Yes
+}
+
+ParserOptions {
+
+
+}
+
